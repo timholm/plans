@@ -70,24 +70,3 @@ spec:
   - name: http
     port: 80
     targetPort: 8080
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: plans
-  namespace: plans
-  labels:
-    app: plans
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: plans.holm.team
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: plans
-            port:
-              number: 80
